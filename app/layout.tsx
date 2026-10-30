@@ -6,6 +6,9 @@ const display = Big_Shoulders({
   subsets: ["latin"],
   weight: ["700", "800", "900"],
   variable: "--f-display",
+  // O Next não tem medidas de ajuste para esta fonte; sem isso o build avisa.
+  adjustFontFallback: false,
+  fallback: ["Impact", "Arial Narrow", "sans-serif"],
 });
 const texto = Archivo({
   subsets: ["latin"],
