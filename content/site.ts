@@ -12,11 +12,16 @@ function wa(msg: string) {
 
 export const links = {
   geral: wa("Olá, Old Biker! Quero agendar um serviço para a minha moto."),
+  cases: wa("Olá, Old Biker! Vi os projetos no site e quero conversar sobre a minha moto."),
+  daniel: wa("Olá, Tininho! Quero conversar sobre a minha moto."),
+  oficina: wa("Olá, Old Biker! Quero levar a minha moto para uma avaliação na oficina."),
   restauracao: wa("Olá, Old Biker! Quero agendar uma avaliação para restaurar a minha moto."),
   revisao: wa("Olá, Old Biker! Quero agendar uma revisão da minha moto."),
   instagram: "https://instagram.com/oldbikerbh",
   mapa: "https://www.google.com/maps/search/?api=1&query=Rua%20Lignito%2C%2033%2C%20Santa%20Efig%C3%AAnia%2C%20Belo%20Horizonte%2C%20MG",
 };
+
+export const temWhatsApp = Boolean(numero);
 
 export const canal = numero
   ? "Atendimento pelo WhatsApp"

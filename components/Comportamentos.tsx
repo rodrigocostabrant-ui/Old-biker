@@ -2,25 +2,25 @@
 
 import { useEffect } from "react";
 
-// Cabeçalho sólido ao rolar, barra fixa no celular depois do hero e entrada
-// leve das seções (opacidade + 20px, 560ms, uma vez).
+// Cabeçalho sólido depois do hero, barra fixa no celular e entrada leve das
+// seções (opacidade + 24px, uma vez).
 export default function Comportamentos() {
   useEffect(() => {
     const root = document.documentElement;
+    const hero = document.getElementById("topo");
 
     const onScroll = () => {
-      const y = window.scrollY;
-      root.dataset.solido = String(y > 30);
-      root.dataset.passouHero = String(y > window.innerHeight * 0.75);
-      if (y > 30) root.dataset.intro = "fim";
+      const fimHero = hero ? hero.offsetTop + hero.offsetHeight - window.innerHeight : 0;
+      root.dataset.solido = String(window.scrollY > fimHero - 10);
+      root.dataset.passouHero = String(window.scrollY > fimHero + window.innerHeight * 0.4);
     };
     document.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     onScroll();
 
     let io: IntersectionObserver | undefined;
     const reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduz && "IntersectionObserver" in window) {
-      const vh = window.innerHeight;
       const ease = "cubic-bezier(.2,.65,.2,1)";
       io = new IntersectionObserver(
         (entries) => {
@@ -28,24 +28,24 @@ export default function Comportamentos() {
             if (!e.isIntersecting) return;
             const el = e.target as HTMLElement;
             el.style.opacity = "1";
-            el.style.transform = "none";
+            el.style.translate = "0 0";
             io?.unobserve(el);
           });
         },
         { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
       );
       document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
-        if (el.getBoundingClientRect().top < vh * 0.92) return;
         const d = parseInt(el.dataset.reveal ?? "0", 10) || 0;
         el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.style.transition = `opacity 560ms ${ease} ${d}ms, transform 560ms ${ease} ${d}ms`;
+        el.style.translate = "0 24px";
+        el.style.transition = `opacity 700ms ${ease} ${d}ms, translate 700ms ${ease} ${d}ms, transform .5s ${ease}`;
         io?.observe(el);
       });
     }
 
     return () => {
       document.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       io?.disconnect();
     };
   }, []);
