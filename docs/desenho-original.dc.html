@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Old Biker · Oficina de motos clássicas em BH</title>
+<meta name="description" content="Restauração e manutenção de motos clássicas e antigas em Santa Efigênia, Belo Horizonte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Archivo:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+html,body{overflow-x:clip}
+body{margin:0;background:#0E0D0C;color:#EFE8DC;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:#EFE8DC;text-decoration:none}
+a:hover{color:#E2733A}
+::selection{background:#D4622A;color:#0E0D0C}
+</style>
+</helmet>
+
+<header ref="{{ headerRef }}" style="position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(14,13,12,0);border-bottom:1px solid rgba(239,232,220,0);transition:background-color .35s ease,border-color .35s ease">
+  <div style="max-width:1320px;margin:0 auto;padding:12px clamp(20px,5vw,64px);box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="#topo" style="display:flex;align-items:center;gap:12px">
+      <img src="uploads/logo-old-biker-fundo-transparente.png" alt="Old Biker" style="width:46px;height:46px;object-fit:contain">
+      <span style="font:800 17px/1 'Big Shoulders Display',sans-serif;letter-spacing:.1em;text-transform:uppercase">Old Biker</span>
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:clamp(20px,3vw,40px);font:500 11.5px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase">
+        <a href="#servicos">Serviços</a>
+        <a href="#oficina">Oficina</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </sc-if>
+    <a href="{{ waGeral }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #D4622A;color:#E2733A;font:600 13px/1 'Archivo',sans-serif;padding:12px 16px;border-radius:2px;white-space:nowrap;transition:background-color .2s ease,color .2s ease" style-hover="background-color:#D4622A;color:#0E0D0C">Agendar meu serviço</a>
+  </div>
+</header>
+
+<section id="topo" style="position:relative;overflow:hidden;background:#0E0D0C">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(92px,13vh,124px) clamp(20px,5vw,64px) 0;box-sizing:border-box;display:flex;flex-wrap:wrap-reverse;align-items:center;gap:clamp(12px,2vw,28px);min-height:min(calc(100vh - 64px),860px)">
+    <div style="flex:1 1 360px;min-width:0;position:relative;z-index:2;padding:12px 0 48px;display:flex;flex-direction:column;gap:26px">
+      <p style="margin:0;display:flex;align-items:center;gap:12px;font:500 11.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#C4C7CA"><span style="width:28px;height:1px;background:#D4622A"></span>Oficina de motos clássicas · Belo Horizonte</p>
+      <h1 style="margin:0;font:900 clamp(52px,7vw,112px)/.86 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.005em;color:#EFE8DC;text-wrap:balance">Máquinas com história. <span style="color:#D4622A">Mecânica com propósito.</span></h1>
+      <p style="margin:0;max-width:440px;font:400 clamp(15px,1.2vw,17px)/1.65 'Archivo',sans-serif;color:rgba(239,232,220,.74);text-wrap:pretty">Restauração e manutenção de motos clássicas e antigas: Honda CB, Harley-Davidson, Yamaha e raridades europeias. Em Santa Efigênia, BH.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <a href="{{ waGeral }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:14px;background:#D4622A;color:#0E0D0C;font:600 15px/1 'Archivo',sans-serif;padding:19px 26px;border-radius:2px;transition:background-color .2s ease" style-hover="background-color:#E2733A;color:#0E0D0C">Agendar meu serviço <span style="font-size:18px">→</span></a>
+        <a href="#servicos" style="display:inline-flex;align-items:center;border:1px solid rgba(239,232,220,.3);color:#EFE8DC;font:500 15px/1 'Archivo',sans-serif;padding:18px 24px;border-radius:2px;transition:border-color .2s ease" style-hover="border-color:#EFE8DC;color:#EFE8DC">Ver serviços</a>
+      </div>
+      <p style="margin:0;font:400 11px/1.4 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8E9196">{{ canal }}</p>
+    </div>
+    <div style="flex:1.3 1 400px;min-width:0;max-width:760px;margin:0 auto;position:relative">
+      <div style="position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 80%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 80%,transparent 100%);mask-composite:intersect">
+        <img src="uploads/08-moto-classica-cromada.jpg" alt="Moto clássica europeia com tanque cromado na oficina Old Biker" style="width:100%;height:auto;filter:brightness(.78) contrast(1.12) saturate(.7)">
+                <div style="position:absolute;inset:-1px;background:radial-gradient(ellipse 60% 55% at 56% 52%,rgba(43,34,28,0) 30%,rgba(14,13,12,.55) 100%)"></div>
+      </div>
+      <sc-if value="{{ showCallouts }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;inset:0;pointer-events:none;font:500 10.5px/1.35 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#EFE8DC">
+          <span style="position:absolute;left:49%;top:53%;height:30%;border-left:1px solid rgba(239,232,220,.5)"></span>
+          <span style="position:absolute;left:49%;top:53%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#D4622A;box-shadow:0 0 0 4px rgba(212,98,42,.22)"></span>
+          <span style="position:absolute;right:calc(51% + 12px);top:81%;white-space:nowrap;text-align:right">Carburação</span>
+          <span style="position:absolute;left:59%;top:55%;height:30%;border-left:1px solid rgba(239,232,220,.5)"></span>
+          <span style="position:absolute;left:59%;top:55%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#D4622A;box-shadow:0 0 0 4px rgba(212,98,42,.22)"></span>
+          <span style="position:absolute;left:calc(59% + 12px);top:81%;width:calc(41% - 16px)">Motor<br><span style="color:#9A9DA1;letter-spacing:.08em;text-transform:none;font-size:11px">câmbio · cabeçote · válvulas</span></span>
+          <span style="position:absolute;left:87%;top:11%;height:19%;border-left:1px solid rgba(239,232,220,.5)"></span>
+          <span style="position:absolute;left:87%;top:30%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#D4622A;box-shadow:0 0 0 4px rgba(212,98,42,.22)"></span>
+          <span style="position:absolute;right:calc(13% + 12px);top:9%;white-space:nowrap;text-align:right">Elétrica<br><span style="color:#9A9DA1;letter-spacing:.08em;text-transform:none;font-size:11px">partida e chicote</span></span>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:18px 0 22px;border-top:1px solid rgba(239,232,220,.12);font:500 11px/1.4 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#8E9196">
+      <span>Rua Lignito, 33 — Santa Efigênia, BH</span>
+      <span>Restauração · Manutenção · Revisão</span>
+      <a href="https://instagram.com/oldbikerbh" target="_blank" rel="noopener" style="color:#8E9196" style-hover="color:#EFE8DC">@oldbikerbh</a>
+    </div>
+  </div>
+</section>
+
+<div style="background:#161513;border-top:1px solid rgba(239,232,220,.08);border-bottom:1px solid rgba(239,232,220,.08)">
+  <div style="max-width:1320px;margin:0 auto;padding:16px clamp(20px,5vw,64px);box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;font:800 clamp(17px,1.7vw,23px)/1.1 'Big Shoulders Display',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#C4C7CA">
+    <span style="font:500 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#D4622A;margin-right:6px">Já passaram pela bancada</span>
+    <span>Honda CB 400 Four</span><span style="color:#D4622A">·</span>
+    <span>CB 550</span><span style="color:#D4622A">·</span>
+    <span>CB 750</span><span style="color:#D4622A">·</span>
+    <span>CB 360</span><span style="color:#D4622A">·</span>
+    <span>Yamaha RD 200</span><span style="color:#D4622A">·</span>
+    <span>Puch 1950</span><span style="color:#D4622A">·</span>
+    <span>Horex</span><span style="color:#D4622A">·</span>
+    <span>Harley-Davidson</span>
+  </div>
+</div>
+
+<section id="oficina" style="background:#0E0D0C;padding:clamp(88px,11vw,156px) 0 clamp(96px,12vw,170px);scroll-margin-top:60px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(56px,7vw,112px)">
+    <div data-reveal="0" style="flex:1 1 360px;min-width:0;max-width:560px;position:relative;padding-bottom:56px">
+      <img src="uploads/01-hero-oficina-ampla.jpg" alt="Galpão da Old Biker com mezanino de tijolo, ferramentas e motos" style="width:78%;aspect-ratio:683/832;object-fit:cover;filter:contrast(1.06) brightness(.9) saturate(.85)">
+      <figure style="margin:0;position:absolute;right:0;bottom:0;width:44%;border:8px solid #0E0D0C;background:#0E0D0C">
+        <img src="uploads/02-daniel-capacete-sorrindo.jpg" alt="Daniel Alcantara, o Tininho, de capacete" style="width:100%;aspect-ratio:683/857;object-fit:cover;filter:grayscale(.2) contrast(1.05)">
+        <figcaption style="padding:10px 2px 0;font:500 10px/1.4 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#9A9DA1">Daniel “Tininho” Alcantara</figcaption>
+      </figure>
+      <span style="position:absolute;left:0;bottom:22px;font:500 10px/1.4 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#9A9DA1">fig. 01 — o galpão</span>
+    </div>
+    <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:24px">
+      <p data-reveal="0" style="margin:0;font:500 11.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#D4622A">01 — A oficina</p>
+      <h2 data-reveal="80" style="margin:0;font:800 clamp(42px,5.4vw,80px)/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC;text-wrap:balance">Do projeto parado à <span style="color:#D4622A">entrega.</span></h2>
+      <p data-reveal="140" style="margin:0;max-width:500px;font:400 clamp(15px,1.15vw,17px)/1.7 'Archivo',sans-serif;color:rgba(239,232,220,.74);text-wrap:pretty">Oficina de motos clássicas e antigas em Santa Efigênia, Belo Horizonte. O foco é a linha Honda CB, mas Harley-Davidson, Yamaha e raridades europeias também passam pela bancada.</p>
+      <p data-reveal="180" style="margin:0;max-width:500px;font:400 clamp(15px,1.15vw,17px)/1.7 'Archivo',sans-serif;color:rgba(239,232,220,.74);text-wrap:pretty">Moto antiga pede paciência: peça difícil de achar, modelo raro, mecânica de outra época. E pede dono presente — Daniel Alcantara, o Tininho, está na oficina.</p>
+      <div data-reveal="240" style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+        <span style="font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#8E9196">Da bancada</span>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px)">
+          <div style="border-top:1px solid rgba(239,232,220,.22);padding-top:14px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:900 clamp(40px,4.4vw,62px)/.85 'Big Shoulders Display',sans-serif;color:#EFE8DC">1950</span>
+            <span style="font:500 11px/1.3 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#C4C7CA">Puch</span>
+            <span style="font:400 13.5px/1.5 'Archivo',sans-serif;color:rgba(239,232,220,.6)">Funcionando de novo depois de muito tempo parada.</span>
+          </div>
+          <div style="border-top:1px solid rgba(239,232,220,.22);padding-top:14px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:900 clamp(40px,4.4vw,62px)/.85 'Big Shoulders Display',sans-serif;color:#EFE8DC">1974</span>
+            <span style="font:500 11px/1.3 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#C4C7CA">Honda CB 360</span>
+            <span style="font:400 13.5px/1.5 'Archivo',sans-serif;color:rgba(239,232,220,.6)">Linha CB, a especialidade da casa.</span>
+          </div>
+          <div style="border-top:1px solid #D4622A;padding-top:14px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:900 clamp(40px,4.4vw,62px)/.85 'Big Shoulders Display',sans-serif;color:#D4622A">1976</span>
+            <span style="font:500 11px/1.3 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#C4C7CA">Honda CB 400 Four</span>
+            <span style="font:400 13.5px/1.5 'Archivo',sans-serif;color:rgba(239,232,220,.6)">Peça rara, muitas partes fabricadas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" style="background:#141311;padding:clamp(88px,10vw,148px) 0;scroll-margin-top:60px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box;display:flex;flex-direction:column;gap:clamp(44px,5vw,72px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <p data-reveal="0" style="margin:0;font:500 11.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#D4622A">02 — Serviços</p>
+        <h2 data-reveal="80" style="margin:0;font:800 clamp(42px,5.4vw,80px)/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">O que sai da <span style="color:#D4622A">bancada</span></h2>
+      </div>
+      <p data-reveal="140" style="margin:0;max-width:400px;font:400 clamp(15px,1.15vw,17px)/1.65 'Archivo',sans-serif;color:rgba(239,232,220,.7);text-wrap:pretty">Duas frentes de trabalho. Em ambas, a moto é avaliada e o orçamento vem antes de qualquer serviço.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(48px,5vw,72px) clamp(28px,4vw,56px)">
+      <article data-reveal="0" style="position:relative;border-top:1px solid rgba(239,232,220,.32);padding-top:22px;display:flex;flex-direction:column;gap:20px">
+        <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;border:1px solid rgba(239,232,220,.5);background:#141311;box-sizing:border-box"></span>
+        <span style="position:absolute;top:-5px;right:0;width:9px;height:9px;border-radius:50%;border:1px solid rgba(239,232,220,.5);background:#141311;box-sizing:border-box"></span>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <span style="font:900 clamp(48px,5vw,72px)/.8 'Big Shoulders Display',sans-serif;color:#D4622A">01</span>
+          <span style="font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#8E9196">fig. 07 · Honda CB 400 Four</span>
+        </div>
+        <div style="position:relative;overflow:hidden;background:#1E1C1A">
+          <img src="uploads/07-honda-cb400-roxa-oficina.jpg" alt="Honda CB 400 Four roxa dentro da oficina" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 62%;filter:contrast(1.05) saturate(.85)">
+        </div>
+        <h3 style="margin:0;font:800 clamp(30px,3vw,42px)/.95 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Restauração de motos antigas</h3>
+        <p style="margin:0;font:400 16px/1.65 'Archivo',sans-serif;color:rgba(239,232,220,.72);text-wrap:pretty">Para a clássica parada há anos ou que precisa voltar ao que era. A gente pesquisa o modelo, recupera a mecânica e corre atrás da peça certa, mesmo as difíceis de achar.</p>
+        <div style="display:flex;flex-direction:column;font:400 15px/1.4 'Archivo',sans-serif;color:#EFE8DC">
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">R.01</span>Restauração completa</div>
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">R.02</span>Motor: câmbio, cabeçote e válvulas</div>
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">R.03</span>Carburação e elétrica</div>
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">R.04</span>Pesquisa de peças raras</div>
+        </div>
+        <a href="{{ waRest }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;font:600 15px/1 'Archivo',sans-serif;color:#E2733A;padding:6px 0;border-bottom:1px solid #D4622A" style-hover="color:#EFE8DC;border-bottom-color:#EFE8DC">Agendar avaliação de restauração <span>→</span></a>
+      </article>
+      <article data-reveal="120" style="position:relative;border-top:1px solid rgba(239,232,220,.32);padding-top:22px;display:flex;flex-direction:column;gap:20px">
+        <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;border:1px solid rgba(239,232,220,.5);background:#141311;box-sizing:border-box"></span>
+        <span style="position:absolute;top:-5px;right:0;width:9px;height:9px;border-radius:50%;border:1px solid rgba(239,232,220,.5);background:#141311;box-sizing:border-box"></span>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <span style="font:900 clamp(48px,5vw,72px)/.8 'Big Shoulders Display',sans-serif;color:#D4622A">02</span>
+          <span style="font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#8E9196">fig. 06 · Honda Super Sport</span>
+        </div>
+        <div style="position:relative;overflow:hidden;background:#1E1C1A">
+          <img src="uploads/06-honda-super-sport-vermelha.jpg" alt="Motor e coletor de escape cromado de uma Honda Super Sport vermelha" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 58%;filter:contrast(1.05) saturate(.85)">
+        </div>
+        <h3 style="margin:0;font:800 clamp(30px,3vw,42px)/.95 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Manutenção e revisão</h3>
+        <p style="margin:0;font:400 16px/1.65 'Archivo',sans-serif;color:rgba(239,232,220,.72);text-wrap:pretty">Para quem roda com a clássica no dia a dia ou vai pegar estrada. Revisão geral, manutenção preventiva e preparação para viagem, inclusive longa.</p>
+        <div style="display:flex;flex-direction:column;font:400 15px/1.4 'Archivo',sans-serif;color:#EFE8DC">
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">M.01</span>Revisão geral</div>
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">M.02</span>Preparação para viagem</div>
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">M.03</span>Troca de óleo e preventiva</div>
+          <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(239,232,220,.12)"><span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A;min-width:38px">M.04</span>Manutenção Harley-Davidson</div>
+        </div>
+        <a href="{{ waRev }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;font:600 15px/1 'Archivo',sans-serif;color:#E2733A;padding:6px 0;border-bottom:1px solid #D4622A" style-hover="color:#EFE8DC;border-bottom-color:#EFE8DC">Agendar revisão <span>→</span></a>
+      </article>
+    </div>
+    <div data-reveal="0" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 40px;padding:clamp(26px,3vw,36px) clamp(22px,3vw,40px);border:1px solid rgba(239,232,220,.16);background:#0E0D0C">
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:620px">
+        <span style="font:800 clamp(26px,2.6vw,36px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Não sabe o que a moto precisa?</span>
+        <span style="font:400 15.5px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.68)">Comece pela avaliação: conte qual é a moto e o que está acontecendo.</span>
+      </div>
+      <a href="{{ waGeral }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:14px;background:#D4622A;color:#0E0D0C;font:600 15px/1 'Archivo',sans-serif;padding:19px 26px;border-radius:2px;transition:background-color .2s ease" style-hover="background-color:#E2733A;color:#0E0D0C">Agendar meu serviço <span style="font-size:18px">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" style="background:#0E0D0C;padding:clamp(88px,10vw,148px) 0;scroll-margin-top:60px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box;display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <p data-reveal="0" style="margin:0;font:500 11.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#D4622A">03 — Galeria</p>
+        <h2 data-reveal="80" style="margin:0;font:800 clamp(42px,5.4vw,80px)/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC;text-wrap:balance">Mais uma raridade saindo da <span style="color:#D4622A">Old Biker.</span></h2>
+      </div>
+      <a data-reveal="140" href="https://instagram.com/oldbikerbh" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font:500 11.5px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#C4C7CA;padding:6px 0;border-bottom:1px solid rgba(239,232,220,.3)" style-hover="color:#EFE8DC;border-bottom-color:#D4622A">Mais no Instagram <span>→</span></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(108px,15vw,214px);gap:clamp(8px,1vw,14px)">
+      <figure data-reveal="0" style="margin:0;position:relative;overflow:hidden;grid-column:span 4;grid-row:span 2;background:#1E1C1A">
+        <img src="uploads/05-honda-cafe-racer-verde.jpg" alt="Honda café racer verde na bancada hidráulica" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(.82)">
+        <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:36px 16px 14px;background:linear-gradient(0deg,rgba(14,13,12,.85),rgba(14,13,12,0));font:500 10.5px/1.3 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#EFE8DC">Honda · café racer na bancada</figcaption>
+      </figure>
+      <figure data-reveal="100" style="margin:0;position:relative;overflow:hidden;grid-column:span 2;grid-row:span 2;background:#1E1C1A">
+        <img src="uploads/10-daniel-harley-estrada.jpg" alt="Daniel pilotando uma Harley-Davidson na estrada" style="width:100%;height:100%;object-fit:cover;object-position:40% 60%;filter:contrast(1.05) saturate(.8)">
+        <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:36px 16px 14px;background:linear-gradient(0deg,rgba(14,13,12,.85),rgba(14,13,12,0));font:500 10.5px/1.3 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#EFE8DC">Harley-Davidson · na estrada</figcaption>
+      </figure>
+      <figure data-reveal="0" style="margin:0;position:relative;overflow:hidden;grid-column:span 2;background:#1E1C1A">
+        <img src="uploads/09-chopper-preta-parede-tijolo.jpg" alt="Chopper preta contra parede de tijolo" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(.8)">
+        <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(0deg,rgba(14,13,12,.85),rgba(14,13,12,0));font:500 10px/1.3 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#EFE8DC">Chopper</figcaption>
+      </figure>
+      <figure data-reveal="80" style="margin:0;position:relative;overflow:hidden;grid-column:span 2;background:#1E1C1A">
+        <img src="uploads/04-oficina-mecanico-trabalhando.jpg" alt="Mecânico trabalhando em moto desmontada na bancada" style="width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:contrast(1.05) saturate(.8)">
+        <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(0deg,rgba(14,13,12,.85),rgba(14,13,12,0));font:500 10px/1.3 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#EFE8DC">Na bancada</figcaption>
+      </figure>
+      <figure data-reveal="160" style="margin:0;position:relative;overflow:hidden;grid-column:span 2;background:#1E1C1A">
+        <img src="uploads/08-moto-classica-cromada.jpg" alt="Detalhe do tanque cromado de uma clássica europeia" style="width:100%;height:100%;object-fit:cover;object-position:62% 30%;filter:contrast(1.05) saturate(.8)">
+        <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(0deg,rgba(14,13,12,.85),rgba(14,13,12,0));font:500 10px/1.3 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#EFE8DC">Clássica europeia · Horex</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="diferenciais" style="background:#141311;padding:clamp(88px,10vw,148px) 0;scroll-margin-top:60px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box;display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <p data-reveal="0" style="margin:0;font:500 11.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#D4622A">04 — Por que a Old Biker</p>
+        <h2 data-reveal="80" style="margin:0;font:800 clamp(42px,5.4vw,80px)/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Mão de quem <span style="color:#D4622A">entende.</span></h2>
+      </div>
+      <p data-reveal="140" style="margin:0;max-width:400px;font:400 clamp(15px,1.15vw,17px)/1.65 'Archivo',sans-serif;color:rgba(239,232,220,.7);text-wrap:pretty">Moto antiga não é moto qualquer. O que faz diferença na hora de escolher quem vai pôr a mão nela:</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 clamp(28px,4vw,56px)">
+      <div data-reveal="0" style="border-top:1px solid rgba(239,232,220,.2);padding:24px 0 34px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px">
+        <span style="font:500 11px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A">01</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font:800 clamp(24px,2.2vw,30px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Só clássicas e antigas</h3><p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.66);text-wrap:pretty">Honda CB, Harley-Davidson, Yamaha e europeias raras. Não é oficina genérica.</p></div>
+      </div>
+      <div data-reveal="80" style="border-top:1px solid rgba(239,232,220,.2);padding:24px 0 34px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px">
+        <span style="font:500 11px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A">02</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font:800 clamp(24px,2.2vw,30px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Peça difícil não assusta</h3><p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.66);text-wrap:pretty">Pesquisa de modelo raro e de peça que ninguém acha. Na CB 400 Four 1976, muitas partes foram fabricadas.</p></div>
+      </div>
+      <div data-reveal="160" style="border-top:1px solid rgba(239,232,220,.2);padding:24px 0 34px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px">
+        <span style="font:500 11px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A">03</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font:800 clamp(24px,2.2vw,30px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Pronta para a estrada</h3><p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.66);text-wrap:pretty">Revisão para o dia a dia e para viagem longa. Já preparamos moto para dar a volta ao mundo.</p></div>
+      </div>
+      <div data-reveal="0" style="border-top:1px solid rgba(239,232,220,.2);padding:24px 0 34px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px">
+        <span style="font:500 11px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A">04</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font:800 clamp(24px,2.2vw,30px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">O dono na oficina</h3><p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.66);text-wrap:pretty">Daniel Alcantara, o Tininho, está na oficina no dia a dia. Você sabe com quem está falando.</p></div>
+      </div>
+      <div data-reveal="80" style="border-top:1px solid rgba(239,232,220,.2);padding:24px 0 34px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px">
+        <span style="font:500 11px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A">05</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font:800 clamp(24px,2.2vw,30px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Orçamento antes</h3><p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.66);text-wrap:pretty">A moto é avaliada e o orçamento vem antes de qualquer serviço começar.</p></div>
+      </div>
+      <div data-reveal="160" style="border-top:1px solid rgba(239,232,220,.2);padding:24px 0 34px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px">
+        <span style="font:500 11px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#D4622A">06</span>
+        <div style="display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font:800 clamp(24px,2.2vw,30px)/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC">Comunidade de verdade</h3><p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.66);text-wrap:pretty">Clientes marcam a oficina a cada entrega. Parceiros como Brandy Moto Peças e Oficina dos Tons.</p></div>
+      </div>
+    </div>
+    <div data-reveal="0" style="display:flex;flex-direction:column;gap:28px;padding-top:clamp(8px,2vw,24px)">
+      <span style="font:500 11px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#8E9196">Como funciona</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px clamp(20px,3vw,40px)">
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(239,232,220,.2);padding-top:18px;position:relative">
+          <span style="position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:#D4622A"></span>
+          <span style="font:900 40px/.85 'Big Shoulders Display',sans-serif;color:#EFE8DC">01</span>
+          <span style="font:800 21px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#EFE8DC">Conversa</span>
+          <span style="font:400 14.5px/1.55 'Archivo',sans-serif;color:rgba(239,232,220,.62)">Você conta qual é a moto e o que ela precisa.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(239,232,220,.2);padding-top:18px;position:relative">
+          <span style="position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;border:1.5px solid #D4622A;background:#141311;box-sizing:border-box"></span>
+          <span style="font:900 40px/.85 'Big Shoulders Display',sans-serif;color:#EFE8DC">02</span>
+          <span style="font:800 21px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#EFE8DC">Avaliação</span>
+          <span style="font:400 14.5px/1.55 'Archivo',sans-serif;color:rgba(239,232,220,.62)">A moto vem para a oficina e é examinada de perto.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(239,232,220,.2);padding-top:18px;position:relative">
+          <span style="position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;border:1.5px solid #D4622A;background:#141311;box-sizing:border-box"></span>
+          <span style="font:900 40px/.85 'Big Shoulders Display',sans-serif;color:#EFE8DC">03</span>
+          <span style="font:800 21px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#EFE8DC">Orçamento</span>
+          <span style="font:400 14.5px/1.55 'Archivo',sans-serif;color:rgba(239,232,220,.62)">Você sabe o que vai ser feito antes de começar.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(239,232,220,.2);padding-top:18px;position:relative">
+          <span style="position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;border:1.5px solid #D4622A;background:#141311;box-sizing:border-box"></span>
+          <span style="font:900 40px/.85 'Big Shoulders Display',sans-serif;color:#EFE8DC">04</span>
+          <span style="font:800 21px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#EFE8DC">Execução e entrega</span>
+          <span style="font:400 14.5px/1.55 'Archivo',sans-serif;color:rgba(239,232,220,.62)">Mão na massa, e mais uma clássica de volta à rua.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="position:relative;overflow:hidden;background:#0E0D0C;scroll-margin-top:60px">
+  <div style="display:flex;flex-wrap:wrap-reverse;align-items:stretch">
+    <div style="flex:1 1 520px;min-width:0;display:flex;justify-content:flex-end">
+      <div style="width:100%;max-width:700px;box-sizing:border-box;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:28px">
+        <p data-reveal="0" style="margin:0;font:500 11.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#D4622A">05 — Agendamento</p>
+        <h2 data-reveal="80" style="margin:0;font:900 clamp(48px,6.4vw,100px)/.86 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#EFE8DC;text-wrap:balance">Sua moto tem história. <span style="color:#D4622A">A gente cuida dela.</span></h2>
+        <p data-reveal="140" style="margin:0;max-width:440px;font:400 clamp(15px,1.2vw,17px)/1.65 'Archivo',sans-serif;color:rgba(239,232,220,.74);text-wrap:pretty">Conte qual é a moto e o que ela precisa. A gente responde e marca a avaliação na oficina.</p>
+        <div data-reveal="200" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <a href="{{ waGeral }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:14px;background:#D4622A;color:#0E0D0C;font:600 16px/1 'Archivo',sans-serif;padding:21px 30px;border-radius:2px;transition:background-color .2s ease" style-hover="background-color:#E2733A;color:#0E0D0C">Agendar meu serviço <span style="font-size:19px">→</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Lignito%2C%2033%2C%20Santa%20Efig%C3%AAnia%2C%20Belo%20Horizonte%2C%20MG" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;border:1px solid rgba(239,232,220,.3);color:#EFE8DC;font:500 15px/1 'Archivo',sans-serif;padding:20px 24px;border-radius:2px" style-hover="border-color:#EFE8DC;color:#EFE8DC">Como chegar</a>
+        </div>
+        <div data-reveal="240" style="display:flex;flex-direction:column;gap:6px;padding-top:22px;border-top:1px solid rgba(239,232,220,.14);max-width:440px">
+          <span style="font:500 11px/1.4 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8E9196">{{ canal }}</span>
+          <span style="font:400 15px/1.5 'Archivo',sans-serif;color:#EFE8DC">Rua Lignito, 33 · Santa Efigênia · Belo Horizonte</span>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1 1 380px;min-width:0;position:relative;min-height:clamp(420px,52vw,760px)">
+      <img src="uploads/03-daniel-ajustando-capacete.jpg" alt="Daniel ajustando o capacete" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.15) contrast(1.06) brightness(.92)">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0E0D0C 0%,rgba(14,13,12,0) 28%),linear-gradient(0deg,rgba(14,13,12,.5) 0%,rgba(14,13,12,0) 30%)"></div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#0A0908;border-top:1px solid rgba(239,232,220,.1)">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,6vw,80px) clamp(20px,5vw,64px) 28px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:40px 32px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <img src="uploads/logo-old-biker-fundo-transparente.png" alt="Old Biker" style="width:72px;height:72px;object-fit:contain">
+        <span style="font:400 14.5px/1.6 'Archivo',sans-serif;color:rgba(239,232,220,.62);max-width:240px">Oficina de motocicletas clássicas e antigas em Belo Horizonte.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#8E9196">Endereço</span>
+        <span style="font:400 15px/1.6 'Archivo',sans-serif;color:#EFE8DC">Rua Lignito, 33<br>Santa Efigênia · Belo Horizonte</span>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Lignito%2C%2033%2C%20Santa%20Efig%C3%AAnia%2C%20Belo%20Horizonte%2C%20MG" target="_blank" rel="noopener" style="font:500 14px/1 'Archivo',sans-serif;color:#E2733A" style-hover="color:#EFE8DC">Como chegar →</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#8E9196">Contato</span>
+        <a href="{{ waGeral }}" target="_blank" rel="noopener" style="font:400 15px/1.4 'Archivo',sans-serif">Agendar meu serviço</a>
+        <a href="https://instagram.com/oldbikerbh" target="_blank" rel="noopener" style="font:400 15px/1.4 'Archivo',sans-serif">Instagram @oldbikerbh</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#8E9196">Navegação</span>
+        <a href="#servicos" style="font:400 15px/1.4 'Archivo',sans-serif">Serviços</a>
+        <a href="#oficina" style="font:400 15px/1.4 'Archivo',sans-serif">Oficina</a>
+        <a href="#galeria" style="font:400 15px/1.4 'Archivo',sans-serif">Galeria</a>
+        <a href="#contato" style="font:400 15px/1.4 'Archivo',sans-serif">Contato</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:22px;border-top:1px solid rgba(239,232,220,.1);font:500 10.5px/1.4 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#6F7276">
+      <span>© 2026 Old Biker · Belo Horizonte</span>
+      <span>Motos clássicas e antigas</span>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(14,13,12,.94);border-top:1px solid rgba(239,232,220,.12)">
+    <a href="{{ waGeral }}" target="_blank" rel="noopener" style="display:flex;justify-content:center;align-items:center;gap:12px;background:#D4622A;color:#0E0D0C;font:600 15px/1 'Archivo',sans-serif;padding:17px;border-radius:2px" style-hover="color:#0E0D0C">Agendar meu serviço <span>→</span></a>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Conversão&quot;},&quot;barraMobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conversão&quot;},&quot;callouts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  state = { narrow: window.innerWidth > 0 && window.innerWidth < 760, pastHero: false };
+  setHeader = el => { this.headerEl = el; };
+
+  scrollY() {
+    const se = document.scrollingElement || document.documentElement;
+    return window.scrollY || se.scrollTop || document.body.scrollTop || 0;
+  }
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 759px)');
+    this.onResize = () => {
+      if (!window.innerWidth) return;
+      const n = window.innerWidth < 760;
+      if (n !== this.state.narrow) this.setState({ narrow: n });
+    };
+    this.onScroll = () => {
+      const y = this.scrollY();
+      if (this.headerEl) {
+        const solid = y > 30;
+        this.headerEl.style.backgroundColor = solid ? 'rgba(14,13,12,.94)' : 'rgba(14,13,12,0)';
+        this.headerEl.style.borderBottomColor = solid ? 'rgba(239,232,220,.10)' : 'rgba(239,232,220,0)';
+      }
+      const p = y > window.innerHeight * 0.75;
+      if (p !== this.state.pastHero) this.setState({ pastHero: p });
+    };
+    if (this.mq.addEventListener) this.mq.addEventListener('change', this.onResize); else this.mq.addListener(this.onResize);
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('load', this.onResize);
+    document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
+    this.onResize();
+    this.onScroll();
+    requestAnimationFrame(() => { this.onResize(); this.setupReveal(); });
+  }
+
+  componentWillUnmount() {
+    if (this.mq) { if (this.mq.removeEventListener) this.mq.removeEventListener('change', this.onResize); else this.mq.removeListener(this.onResize); }
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('load', this.onResize);
+    document.removeEventListener('scroll', this.onScroll, { capture: true });
+    if (this.io) this.io.disconnect();
+  }
+
+  // Entrada leve: opacidade + 20px, 560ms, uma vez. Hero e imagens não se movem.
+  setupReveal() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+    const vh = window.innerHeight;
+    this.io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        this.io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.getBoundingClientRect().top < vh * 0.92) return;
+      const d = parseInt(el.getAttribute('data-reveal'), 10) || 0;
+      const ease = 'cubic-bezier(.2,.65,.2,1)';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 560ms ${ease} ${d}ms, transform 560ms ${ease} ${d}ms`;
+      this.io.observe(el);
+    });
+  }
+
+  wa(msg) {
+    const num = String(this.props.whatsapp ?? '').replace(/\D/g, '');
+    return num ? `https://wa.me/${num}?text=${encodeURIComponent(msg)}` : 'https://ig.me/m/oldbikerbh';
+  }
+
+  renderVals() {
+    const num = String(this.props.whatsapp ?? '').replace(/\D/g, '');
+    const narrow = this.state.narrow;
+    return {
+      headerRef: this.setHeader,
+      wide: !narrow,
+      showCallouts: !narrow && this.props.callouts !== false,
+      showSticky: narrow && this.state.pastHero && this.props.barraMobile !== false,
+      waGeral: this.wa('Olá, Old Biker! Quero agendar um serviço para a minha moto.'),
+      waRest: this.wa('Olá, Old Biker! Quero agendar uma avaliação para restaurar a minha moto.'),
+      waRev: this.wa('Olá, Old Biker! Quero agendar uma revisão da minha moto.'),
+      canal: num ? 'Atendimento pelo WhatsApp' : 'Atendimento pelo Direct do Instagram · @oldbikerbh'
+    };
+  }
+}
+</script>
+</body>
+</html>
